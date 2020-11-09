@@ -61,7 +61,13 @@ namespace System.Windows.Controls
 			typeof(MultiSelectTreeViewItem),
 			new FrameworkPropertyMetadata(Brushes.Transparent, null));
 
-		public static DependencyProperty BorderBrushFocusedProperty = DependencyProperty.Register(
+        public static DependencyProperty BorderBrushSelectedHoveredProperty = DependencyProperty.Register(
+            "BorderBrushSelectedHovered",
+            typeof(Brush),
+            typeof(MultiSelectTreeViewItem),
+            new FrameworkPropertyMetadata(Brushes.Transparent, null));
+
+        public static DependencyProperty BorderBrushFocusedProperty = DependencyProperty.Register(
 			"BorderBrushFocused",
 			typeof(Brush),
 			typeof(MultiSelectTreeViewItem),
@@ -228,7 +234,13 @@ namespace System.Windows.Controls
 			set { SetValue(BorderBrushHoveredProperty, value); }
 		}
 
-		public Brush BorderBrushFocused
+        public Brush BorderBrushSelectedHovered
+        {
+            get { return (Brush)GetValue(BorderBrushSelectedHoveredProperty); }
+            set { SetValue(BorderBrushSelectedHoveredProperty, value); }
+        }
+
+        public Brush BorderBrushFocused
 		{
 			get { return (Brush) GetValue(BorderBrushFocusedProperty); }
 			set { SetValue(BorderBrushFocusedProperty, value); }
